@@ -23,7 +23,7 @@ export default class Note extends React.Component {
       .then(res => {
         if (!res.ok)
           return res.json().then(e => Promise.reject(e))
-        return res.json()
+        return res
       })
       .then(() => {
         this.context.deleteNote(noteId)
@@ -37,7 +37,7 @@ export default class Note extends React.Component {
 
   render() {
     const { note_name, id } = this.props
-  
+    console.log(id)
     return (
       <div className='Note'>
         <h2 className='Note__title'>
